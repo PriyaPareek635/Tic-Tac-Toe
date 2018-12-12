@@ -3,10 +3,12 @@
 #include<stdlib.h>
 #include <windows.h>
 
+//Initialization
 int board[10] = {2,2,2,2,2,2,2,2,2,2};
 int turn = 1,flag = 0;
 int player,comp;
 
+//some functions 
 void menu();
 void go(int n);
 void start_game();
@@ -15,6 +17,7 @@ void draw_board();
 void player_first();
 void put_X_O(char ch,int pos);
 COORD coord= {0,0}; // this is global variable
+
 //center of axis is set to the top left cornor of the screen
 void gotoxy(int x,int y)
 {
@@ -31,6 +34,7 @@ void main()
 
 }
 
+//When project runs this shows to select the option
 void menu()
 {
     int choice;
@@ -89,6 +93,7 @@ int make4()
     return 0;
 }
 
+//possibility of winning
 int posswin(int p)
 {
 // p==1 then X   p==0  then  O
@@ -161,6 +166,7 @@ void go(int n)
     turn++;
 }
 
+//Players turn
 void player_first()
 {
     int pos;
@@ -190,6 +196,7 @@ void player_first()
     start_game();
 }
 
+//to Start the game
 void start_game()
 {
 // p==1 then X   p==0  then  O
@@ -217,6 +224,7 @@ void start_game()
         player_first();
 }
 
+//If both player and the computers have the same postion of scores
 void check_draw()
 {
     if(turn > 9)
@@ -229,6 +237,7 @@ void check_draw()
     }
 }
 
+//to draw the tic tac toe board
 void draw_board()
 {
     int j;
